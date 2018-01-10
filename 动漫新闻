@@ -1,0 +1,44 @@
+导入urllib
+导入urllib2
+导入重新
+
+
+
+user_agent ='Mozilla / 4.0（compatible; MSIE 5.5; Windows NT）'
+headers = {'User-Agent'：user_agent}
+x = 0
+我在范围内（1,200）：
+    url ='http://www.005.tv/Cosplay/list_522_'+str(i)+'.html'
+    打印网址
+    尝试：
+        request = urllib2.Request（url，headers = headers）
+        response = urllib2.urlopen（request）
+        html = response.read（）
+    除了urllib2.URLError，e：
+        如果hasattr（e，“code”）：
+            打印e.code
+        如果hasattr（e，“reason”）：
+            打印e.reason
+
+    content_pattern = re.compile（'<li>。*？<img src =“（。*？）”'，re.S）
+    content_list = re.findall（content_pattern，html）
+    对于content_list中的项目：
+        打印项目
+
+
+       
+
+    对于content_list中的imgurl：
+        urllib.urlretrieve（imgurl，'D：\ E \％s.png'％x）
+        X + = 1
+
+
+
+        
+    input = raw_input（）
+    如果输入==“”：
+        打印“下一页”
+        继续
+    其他：
+        打印“结束”
+        打破
